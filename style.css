@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #e0e0e0;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background: rgba(30, 30, 50, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+header p {
+    color: #b0b0b0;
+    font-size: 1.1em;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(40, 40, 60, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.info-item {
+    text-align: center;
+}
+
+.label {
+    font-weight: bold;
+    color: #b0b0b0;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#attempt-count, #remaining-attempts {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #667eea;
+    text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#guess-input {
+    padding: 15px 20px;
+    font-size: 1.2em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    min-width: 150px;
+    transition: all 0.3s;
+    background: rgba(40, 40, 60, 0.8);
+    color: #ffffff;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+#guess-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+#guess-input::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#submit-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#submit-btn:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+#submit-btn:disabled {
+    background: #555;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#new-game-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#new-game-btn:hover {
+    background: linear-gradient(45deg, #218838, #1ea080);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.rules {
+    background: rgba(40, 40, 60, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.rules h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.rules ul {
+    list-style: none;
+}
+
+.rules li {
+    margin-bottom: 10px;
+    padding: 8px 15px;
+    background: rgba(50, 50, 70, 0.6);
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    color: #e0e0e0;
+}
+
+.results-section h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#results-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(40, 40, 60, 0.8);
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.result-guess {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.result-feedback {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.strike {
+    color: #dc3545;
+}
+
+.ball {
+    color: #ffc107;
+}
+
+.out {
+    color: #6c757d;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(30, 30, 50, 0.95), rgba(40, 40, 60, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 15% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+.modal-content p {
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    color: #b0b0b0;
+}
+
+#modal-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#modal-btn:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .input-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #guess-input {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* 스크롤바 다크 테마 */
+#results-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#results-container::-webkit-scrollbar-track {
+    background: rgba(40, 40, 60, 0.5);
+    border-radius: 4px;
+}
+
+#results-container::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.6);
+    border-radius: 4px;
+}
+
+#results-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(102, 126, 234, 0.8);
+}
